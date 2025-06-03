@@ -1,0 +1,127 @@
+type: collection.insomnia.rest/5.0
+name: parcial2
+meta:
+  id: wrk_07de3bb213454cf1bc6629a18871fe86
+  created: 1748898597049
+  modified: 1748913253412
+collection:
+  - url: http://localhost:8190/books/create
+    name: crear libro
+    meta:
+      id: req_b5f8525280ef4f859c7f230c8d625416
+      created: 1748898597136
+      modified: 1748915210987
+      isPrivate: false
+      sortKey: -1748898597136
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"title": "hola mundo",
+        	"author": "Stephen King",
+        	"isbn": "8588456852",
+        	"publicationYear": 2025,
+        	"language": "Espanol",
+        	"pages": 5,
+        	"genre": "misterio"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.1.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8190/books/all
+    name: todos los  libros
+    meta:
+      id: req_fe0faf71936444439fd3c0c373fdfd6b
+      created: 1748914813488
+      modified: 1748916293317
+      isPrivate: false
+      sortKey: -1748914813488
+    method: GET
+    body:
+      mimeType: application/json
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.1.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8190/books/update
+    name: actualizar un libro
+    meta:
+      id: req_058e6a6aa8034abbb2339d03b91967b4
+      created: 1748917185057
+      modified: 1748917305565
+      isPrivate: false
+      sortKey: -1748917185057
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"id": "d8fe2758-19f3-4437-ab7a-e222eef8c1fe",
+        	"title": "Jose Miguel"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.1.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8190/books/d8fe2758-19f3-4437-ab7a-e222eef8c1fe
+    name: borrar libro
+    meta:
+      id: req_a59dd9baad4045fa8f7fbad38d33f1fa
+      created: 1748917308318
+      modified: 1748917341386
+      isPrivate: false
+      sortKey: -1748917308318
+    method: DELETE
+    headers:
+      - name: User-Agent
+        value: insomnia/11.1.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_0c414f24133fb31dd131a9d456f95fc9d79e3928
+    created: 1748898597059
+    modified: 1748898597059
+environments:
+  name: Base Environment
+  meta:
+    id: env_0c414f24133fb31dd131a9d456f95fc9d79e3928
+    created: 1748898597055
+    modified: 1748898597055
+    isPrivate: false

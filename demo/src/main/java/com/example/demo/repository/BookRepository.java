@@ -11,7 +11,7 @@ import java.util.UUID;
 
 @Repository
 public interface BookRepository extends JpaRepository<Book, UUID> {
-    public List<Book> findByAuthor(String author);
+    public List<Book> findByAuthor(Book author);
     public Book findByLanguage(String language);
     public Book findByGenre(String genre);
     public Book findByPages(int pages);

@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/books")
@@ -30,4 +31,14 @@ public class BookController {
         return ResponseEntity.ok(bookService.getAllBooks());
     }
 
+    @PutMapping("/update")
+    public  Book updateBook(@RequestBody Book bookInfo){
+        return bookService.updateBook(bookInfo);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteBook(@PathVariable UUID id){
+        bookService.deleteBook(id);
+        return ResponseEntity.ok().build();
+    }
 }

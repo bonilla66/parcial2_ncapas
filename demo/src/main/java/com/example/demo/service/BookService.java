@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 @NoArgsConstructor
@@ -35,19 +36,23 @@ public class BookService {
         return bookRepository.findAll();
     }
 
+    public void deleteBook(UUID id){
+        bookRepository.deleteById(id);
+    }
 
-
-
-
-    /* public List<Book> getBooksByAuthor(String author){
-        List<Book> booksList = new ArrayList<>();
-        List<Book> optionalBook = bookRepository.findByAuthor(author);
-        if(optionalBook.isEmpty()){
-            throw new RuntimeException("No books found for author: " + author);
+    public Book updateBook(Book bookInfo){
+        Optional<Book> book = bookRepository.findById(bookInfo.getId());
+        if(book.isPresent()){
+            Book bookToUpdate = book.get();
+            bookToUpdate.setLanguage(bookInfo.getLanguage());
+            bookToUpdate.setTitle(bookInfo.getTitle());
+            return bookRepository.save(bookToUpdate);
+        } else {
+            return null;
         }
-        List<Book> books = bookRepository.findByAuthor(optionalBook.get());
+    }
 
-    }*/
+
 
 
 
