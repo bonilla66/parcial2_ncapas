@@ -18,6 +18,9 @@ public class BookController {
 
     @PostMapping("/create")
     public ResponseEntity<Void> createBook(@RequestBody Book bookInfo){
+        if (bookInfo.getId().toString().length() != 13 && (bookInfo.getPublicationYear() >= 1900 && bookInfo.getPublicationYear() <= 2025) && bookInfo.getPages() > 10) {
+            return ResponseEntity.badRequest().build();
+        }
         try {
             bookService.createBook(bookInfo);
             return ResponseEntity.ok().build();
